@@ -1,0 +1,201 @@
+<!doctype html>
+
+<head>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link href="chatbox.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Button used to open the chat form - fixed at the bottom of the page */
+        .open-button {
+            background-color: #555;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            opacity: 0.8;
+            position: fixed;
+            bottom: 23px;
+            right: 28px;
+            width: 280px;
+        }
+
+        /* The popup chat - hidden by default */
+        .chat-popup {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            right: 15px;
+            border: 3px solid #f1f1f1;
+            z-index: 9;
+        }
+
+        /* Add styles to the form container */
+        .form-container {
+            max-width: 300px;
+            padding: 10px;
+            background-color: white;
+        }
+
+        /* Full-width textarea */
+        .form-container textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            border: none;
+            background: #f1f1f1;
+            resize: none;
+            min-height: 200px;
+        }
+
+        /* When the textarea gets focus, do something */
+        .form-container textarea:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        /* Set a style for the submit/send button */
+        .form-container .btn {
+            background-color: #04AA6D;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+
+        /* Add a red background color to the cancel button */
+        .form-container .cancel {
+            background-color: red;
+        }
+
+        /* Add some hover effects to buttons */
+        .form-container .btn:hover,
+        .open-button:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- website header -->
+    <header class="text-gray-600 body-font bg-gray-50">
+
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+
+            <!-- logo and website name -->
+            <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                <img src="https://cdn-icons-png.flaticon.com/512/3243/3243384.png" width="38" height="38">
+                <span class="ml-3 text-xl">Gymate</span>
+            </a>
+
+            <!-- 4 buttons, optional feel free to remove -->
+            <nav
+                class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
+                <a class="mr-5 hover:text-gray-900" href="homepage.html">Home</a>
+                <a class="mr-5 hover:text-gray-900" href="mainpage.html">Explore</a>
+                <a class="mr-5 hover:text-gray-900" href="https://stormhacks.com/">Community</a>
+                <a class="mr-5 hover:text-gray-900" href="aboutus.html">About</a>
+            </nav>
+
+            <!-- right button for next person? -->
+            <button
+                class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
+                <a href="mainpage.html">Next Person</a>
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- main website body -->
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto flex flex-wrap">
+
+            <!-- PLACEHOLDER picture of the person -->
+            <div class="lg:w-1/2 w-full mb-10 lg:mb-0 rounded-lg overflow-hidden">
+                <img alt="person picture" class="object-cover object-center h-full w-full" src="https://i.imgur.com/3tQvzLQ.jpg">
+            </div>
+            
+            <div class="flex flex-col flex-wrap lg:py-6 -mb-10 lg:w-1/2 lg:pl-12 lg:text-left text-center">
+            
+                <!-- first paragraph -->
+                <div class="flex flex-col mb-10 lg:items-start items-center">
+            
+                    <!-- logo first paragraph -->
+                    <div class="w-12 h-12 inline-flex items-center justify-center rounded-full bg-yellow-500 text-yellow-500 mb-5">
+                        <img alt="gender logo" class="object-cover object-center h-full w-full"
+                            src="https://cdn-icons-png.flaticon.com/512/1340/1340619.png">
+                    </div>
+            
+                    <!-- text first paragraph -->
+                    <div class="flex-grow">
+            
+                        <!-- PLACEHOLDER name-->
+                        <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Darrick Gunawan</h2>
+            
+                        <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Age: 18 Location: Burnaby</h2>
+            
+            
+            
+                        <!-- PLACEHOLDER about-->
+                        <p class="leading-relaxed text-base">
+                            I hate exercising but I need placeholder people for this project!
+                        </p>
+            
+                        <!-- link to social media -->
+                        <a class="mt-3 text-yellow-500 inline-flex items-center" href="https://www.instagram.com/darrick.g/">
+                            Instagram
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                                <path d="M5 12h14M12 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- chatbox -->
+                <div>
+                    <button class="open-button" onclick="openForm()">Chat</button>
+                </div>
+
+                <div class="chat-popup" id="myForm">
+                    <form class="form-container">
+                        <h1>Chat</h1>
+
+                        <label for="msg"><b>Message</b></label>
+                        <textarea placeholder="Type message.." name="msg" required></textarea>
+
+                        <button type="submit" class="btn">Send</button>
+                        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                    </form>
+                </div>
+
+                <script>
+                    function openForm() {
+                        document.getElementById("myForm").style.display = "block";
+                    }
+
+                    function closeForm() {
+                        document.getElementById("myForm").style.display = "none";
+                    }
+                </script>
+
+            </div>
+        </div>
+    </section>
+</body>
